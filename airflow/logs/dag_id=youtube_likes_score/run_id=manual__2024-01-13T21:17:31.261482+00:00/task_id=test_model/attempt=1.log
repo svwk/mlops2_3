@@ -1,0 +1,30 @@
+[2024-01-13T21:17:50.449+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: youtube_likes_score.test_model manual__2024-01-13T21:17:31.261482+00:00 [queued]>
+[2024-01-13T21:17:50.458+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: youtube_likes_score.test_model manual__2024-01-13T21:17:31.261482+00:00 [queued]>
+[2024-01-13T21:17:50.458+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-01-13T21:17:50.472+0000] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): test_model> on 2024-01-13 21:17:31.261482+00:00
+[2024-01-13T21:17:50.474+0000] {standard_task_runner.py:60} INFO - Started process 191943 to run task
+[2024-01-13T21:17:50.479+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'youtube_likes_score', 'test_model', 'manual__2024-01-13T21:17:31.261482+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/youtube_likes_score.py', '--cfg-path', '/tmp/tmp09_y33h8']
+[2024-01-13T21:17:50.481+0000] {standard_task_runner.py:88} INFO - Job 69: Subtask test_model
+[2024-01-13T21:17:50.565+0000] {task_command.py:423} INFO - Running <TaskInstance: youtube_likes_score.test_model manual__2024-01-13T21:17:31.261482+00:00 [running]> on host prodsrv
+[2024-01-13T21:17:50.696+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='youtube_likes_score' AIRFLOW_CTX_TASK_ID='test_model' AIRFLOW_CTX_EXECUTION_DATE='2024-01-13T21:17:31.261482+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-13T21:17:31.261482+00:00'
+[2024-01-13T21:17:50.697+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-01-13T21:17:50.697+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "python3 /home/admin/scripts/test_model.py '/home/admin'"]
+[2024-01-13T21:17:50.704+0000] {subprocess.py:86} INFO - Output:
+[2024-01-13T21:17:51.867+0000] {subprocess.py:93} INFO - 2024/01/13 21:17:51 INFO mlflow.tracking.fluent: Experiment with name 'test_model' does not exist. Creating a new experiment.
+[2024-01-13T21:17:51.961+0000] {subprocess.py:93} INFO - score= 0.9050918992678443
+[2024-01-13T21:17:51.961+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2024-01-13T21:17:51.965+0000] {subprocess.py:93} INFO -   File "/home/admin/scripts/test_model.py", line 35, in <module>
+[2024-01-13T21:17:51.965+0000] {subprocess.py:93} INFO -     mlflow.log_metric(score=score, artifact_path="test_model")
+[2024-01-13T21:17:51.965+0000] {subprocess.py:93} INFO - TypeError: log_metric() got an unexpected keyword argument 'score'
+[2024-01-13T21:17:52.133+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-01-13T21:17:52.157+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/admin/airflow/airflow_venv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/admin/airflow/airflow_venv/lib/python3.10/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-01-13T21:17:52.160+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=youtube_likes_score, task_id=test_model, execution_date=20240113T211731, start_date=20240113T211750, end_date=20240113T211752
+[2024-01-13T21:17:52.174+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 69 for task test_model (Bash command failed. The command returned a non-zero exit code 1.; 191943)
+[2024-01-13T21:17:52.178+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-01-13T21:17:52.207+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

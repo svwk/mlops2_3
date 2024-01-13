@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1705181039244
+current_stage: None
+description: null
+last_updated_timestamp: 1705181039244
+name: log_reg_model
+run_id: 14d3ba31267b467bab8d891f63841eb9
+run_link: null
+source: /home/admin/mlflow/4/14d3ba31267b467bab8d891f63841eb9/artifacts/train_model
+status: READY
+status_message: null
+storage_location: /home/admin/mlflow/4/14d3ba31267b467bab8d891f63841eb9/artifacts/train_model
+user_id: null
+version: 3

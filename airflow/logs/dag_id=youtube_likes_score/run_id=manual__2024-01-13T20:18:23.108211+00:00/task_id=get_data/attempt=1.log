@@ -1,0 +1,28 @@
+[2024-01-13T20:18:25.463+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: youtube_likes_score.get_data manual__2024-01-13T20:18:23.108211+00:00 [queued]>
+[2024-01-13T20:18:25.470+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: youtube_likes_score.get_data manual__2024-01-13T20:18:23.108211+00:00 [queued]>
+[2024-01-13T20:18:25.470+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 2
+[2024-01-13T20:18:25.485+0000] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): get_data> on 2024-01-13 20:18:23.108211+00:00
+[2024-01-13T20:18:25.487+0000] {standard_task_runner.py:60} INFO - Started process 189814 to run task
+[2024-01-13T20:18:25.492+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'youtube_likes_score', 'get_data', 'manual__2024-01-13T20:18:23.108211+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/youtube_likes_score.py', '--cfg-path', '/tmp/tmpfp5c586n']
+[2024-01-13T20:18:25.494+0000] {standard_task_runner.py:88} INFO - Job 11: Subtask get_data
+[2024-01-13T20:18:25.580+0000] {task_command.py:423} INFO - Running <TaskInstance: youtube_likes_score.get_data manual__2024-01-13T20:18:23.108211+00:00 [running]> on host prodsrv
+[2024-01-13T20:18:25.714+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='youtube_likes_score' AIRFLOW_CTX_TASK_ID='get_data' AIRFLOW_CTX_EXECUTION_DATE='2024-01-13T20:18:23.108211+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-13T20:18:23.108211+00:00'
+[2024-01-13T20:18:25.715+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-01-13T20:18:25.715+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "python3 /home/admin/scripts/get_data.py '/home/admin'"]
+[2024-01-13T20:18:25.722+0000] {subprocess.py:86} INFO - Output:
+[2024-01-13T20:18:26.110+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2024-01-13T20:18:26.111+0000] {subprocess.py:93} INFO -   File "/home/admin/scripts/get_data.py", line 29, in <module>
+[2024-01-13T20:18:26.111+0000] {subprocess.py:93} INFO -     with open(data_file_path, 'a') as f:
+[2024-01-13T20:18:26.111+0000] {subprocess.py:93} INFO - FileNotFoundError: [Errno 2] No such file or directory: '/home/admin/data/raw_data.csv'
+[2024-01-13T20:18:26.139+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-01-13T20:18:26.164+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/admin/airflow/airflow_venv/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/admin/airflow/airflow_venv/lib/python3.10/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-01-13T20:18:26.167+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=youtube_likes_score, task_id=get_data, execution_date=20240113T201823, start_date=20240113T201825, end_date=20240113T201826
+[2024-01-13T20:18:26.184+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 11 for task get_data (Bash command failed. The command returned a non-zero exit code 1.; 189814)
+[2024-01-13T20:18:26.210+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-01-13T20:18:26.246+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
