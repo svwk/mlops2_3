@@ -25,7 +25,7 @@
     dags_folder = /home/admin/airflow/dags
     load_examples = False
     ```
-  - Перед запуском Airflow установлены переменную окружения:
+  - Перед запуском Airflow установлена переменная окружения:
     ```
     export AIRFLOW_HOME=~/airflow
     ```
